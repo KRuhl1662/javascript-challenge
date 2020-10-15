@@ -29,6 +29,9 @@ function runFilter(){
     // Prevents the page from refreshing so it doesn't reset the html
     d3.event.preventDefault();
 
+    // Clear out old data
+    list.html("");
+
     // Select the date from the input
     let inputDate = d3.select("#datetime");
 
@@ -39,4 +42,6 @@ function runFilter(){
     // Use the form input to filter the data by date
 
     let filteredUFOData = tableData.filter(sighting => sighting.datetime === inputValue);
+
+    console.log(filteredUFOData);
 }
