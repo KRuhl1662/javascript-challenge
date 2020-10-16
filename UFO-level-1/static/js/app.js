@@ -16,8 +16,23 @@ form.on("submit", runFilter);
 // first select the table
 let ufoTable = d3.select("tbody");
 
-// now add data
+// now add data using forEach loop
+// checked to make sure keys in object were in same order as columns in table
+data.forEach((tableData) => {
 
+    // add new row
+    let row = ufoTable.append('tr');
+
+    // run loop for each object in the array tableData
+    Object.entries(tableData).forEach(function([key, value]) {
+
+        // add new cell
+        let cell = row.append('td');
+
+        // add text (i.e. value) to cell
+        cell.text(value);
+    })
+})
 
 
 
